@@ -34,7 +34,7 @@ Android-OCR-Example
   2. cd tess/tess-two
   3. ndk-build
   4. android update project --path .
-5. ant release
+  5. ant release
 ```
 
 ## Import Tess-two Libary
