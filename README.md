@@ -81,7 +81,11 @@ Android-OCR-Example
 
 執行結果
 =============
-![alt tag](http://api.drp.io/files/542f0aa0583f6.png)
+* 純中文
+![純英文混合辨識結果圖](http://api.drp.io/files/542f0aa0583f6.png)
+
+* 中英文混合
+![中英文混合辨識結果圖](http://api.drp.io/files/542f0b6c4ed73.png)
 
 
 參考資料來源
