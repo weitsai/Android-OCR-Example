@@ -69,6 +69,7 @@ Android-OCR-Example
     return bmp;
   }
 ```
+
 2. 辨識 bitmap 中的文字
 ```
   TessBaseAPI baseApi = new TessBaseAPI();
