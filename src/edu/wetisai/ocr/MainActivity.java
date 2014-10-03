@@ -1,10 +1,15 @@
 
 package edu.wetisai.ocr;
 
-import edu.wetisai.ocr.R;
+import com.googlecode.tesseract.android.TessBaseAPI;
 
-import android.support.v7.app.ActionBarActivity;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Align;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,12 +19,31 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
     private ImageView image;
     private TextView tessResults;
+    private Bitmap mTextBitmap;
+    private TessBaseAPI baseApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findView();
+
+        mTextBitmap = getTextImage("你好", 300, 300);
+        image.setImageBitmap(mTextBitmap);
+
+        baseApi = new TessBaseAPI();
+        baseApi.init("/mnt/sdcard/tesseract/", "chi_tra");
+        baseApi.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
+        baseApi.setImage(mTextBitmap);
+        String outputText = baseApi.getUTF8Text();
+        tessResults.setText(outputText);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mTextBitmap.recycle();
+        baseApi.end();
+        super.onDestroy();
     }
 
     private void findView() {
@@ -65,4 +89,5 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
