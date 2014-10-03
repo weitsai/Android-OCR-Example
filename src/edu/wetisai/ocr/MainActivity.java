@@ -7,13 +7,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
+    private ImageView image;
+    private TextView tessResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findView();
+    }
+
+    private void findView() {
+        image = findViewId(R.id.image);
+        tessResults = findViewId(R.id.results);
+    }
+
+    private <T extends View> T findViewId(int resId) {
+        return (T) findViewById(resId);
     }
 
     private Bitmap getTextImage(String text, int width, int height) {
