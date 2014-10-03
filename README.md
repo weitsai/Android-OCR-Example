@@ -43,8 +43,10 @@ Android-OCR-Example
 
 ## Setting traineddata file
 1. 下載 traineddata 檔 ([下載點](https://code.google.com/p/tesseract-ocr/downloads/list)) - 如果只是要辨識英文就下載 eng, 若是中文則下載 chi.
-2. 把下載的檔案解壓縮後會得到一個 *.traineddata, 把它放到 Android Porject 的 assets/tesseract/tessdata 下面
-> 請注意路徑一定要這樣喲！！
+2. 透過 adb push 把檔案放到 SDCard -  要注意 tesseract/tessdata/ 這個路徑是固定的喔！！
+```
+  adb push ~/Downloads/tesseract-ocr/tessdata/chi_tra.traineddata /mnt/sdcard/tesseract/tessdata/.
+```
 
 
 # API 使用方式
@@ -70,7 +72,7 @@ Android-OCR-Example
 2. 辨識 bitmap 中的文字
 ```
   TessBaseAPI baseApi = new TessBaseAPI();
-  baseApi.init("file:///android_asset/tesseract/", "chi_tra");
+  baseApi.init("/mnt/sdcard/tesseract/", "chi_tra");
   baseApi.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
   baseApi.setImage(getTextImage("你好, hello", 300, 300));
   System.out.println(baseApi.getUTF8Text());
