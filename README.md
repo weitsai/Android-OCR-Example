@@ -47,7 +47,7 @@ Android-OCR-Example
 > 請注意路徑一定要這樣喲！！
 
 
-# Api 使用方式
+# API 使用方式
 ## 判斷 Bitmap 中的文字
 1. 產生 bitmap 圖片
 ```
