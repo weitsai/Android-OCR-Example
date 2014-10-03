@@ -16,6 +16,22 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
+    private Bitmap getTextImage(String text, int width, int height) {
+        final Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        final Paint paint = new Paint();
+        final Canvas canvas = new Canvas(bmp);
+
+        canvas.drawColor(Color.WHITE);
+
+        paint.setColor(Color.BLACK);
+        paint.setAntiAlias(true);
+        paint.setTextAlign(Align.CENTER);
+        paint.setTextSize(24.0f);
+        canvas.drawText(text, width / 2, height / 2, paint);
+
+        return bmp;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
