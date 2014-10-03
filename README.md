@@ -79,6 +79,11 @@ Android-OCR-Example
   System.out.println(baseApi.getUTF8Text());
 ```
 
+執行結果
+=============
+![alt tag](http://api.drp.io/files/542f0aa0583f6.png)
+
+
 參考資料來源
 =============
 1. https://github.com/rmtheis/tess-two
