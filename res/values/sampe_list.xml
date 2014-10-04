@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sampe_list">
+        <item>OCR 判斷 Bitmap 內文字</item>
+        <item>使用相機拍出來的圖片判斷</item>
+    </string-array>
+
+</resources>
