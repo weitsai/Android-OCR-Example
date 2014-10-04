@@ -51,8 +51,9 @@ Android-OCR-Example
 
 # API 使用方式
 ## 判斷 Bitmap 中的文字
+
 1. 產生 bitmap 圖片
-```
+```java
   private static Bitmap getTextImage(String text, int width, int height) {
     final Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
     final Paint paint = new Paint();
@@ -69,14 +70,45 @@ Android-OCR-Example
     return bmp;
   }
 ```
-
 2. 辨識 bitmap 中的文字
-```
+```java
   TessBaseAPI baseApi = new TessBaseAPI();
   baseApi.init("/mnt/sdcard/tesseract/", "chi_tra");
   baseApi.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
   baseApi.setImage(getTextImage("你好, hello", 300, 300));
   System.out.println(baseApi.getUTF8Text());
+```
+## 拍照後拍照裡面的文字
+1. 呼叫相機
+```java
+  private final int cameraResultCode = 1003;
+  Intent mIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+  startActivityForResult(mIntent, cameraResultCode);
+```
+2. 取得拍照後的圖片並判斷
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  if (resultCode != RESULT_OK) {
+      return;
+  }
+
+  if (requestCode == cameraResultCode) {
+      Bundle extras = data.getExtras();
+      Bitmap bmp = (Bitmap) extras.get("data");
+      image.setImageBitmap(bmp);
+      
+      TessBaseAPI baseApi = new TessBaseAPI();
+      baseApi.init("/mnt/sdcard/tesseract/", "chi_tra");
+      baseApi.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
+      baseApi.setImage(bmp);
+      String outputText = baseApi.getUTF8Text();
+      tessResults.setText(outputText);
+  }
+
+
+  super.onActivityResult(requestCode, resultCode, data);
+}
 ```
 
 執行結果
