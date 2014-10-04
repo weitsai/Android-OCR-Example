@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="edu.wetisai.ocr.MainActivity"
+            android:name="edu.wetisai.orc.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.wetisai.ocr.BitmapORC"
+            android:name="edu.wetisai.orc.BitmapORC"
             android:label="@string/orc_bitmap" >
         </activity>
         <activity
-            android:name="edu.wetisai.ocr.CameraORC"
+            android:name="edu.wetisai.orc.CameraORC"
             android:label="@string/orc_camera" >
         </activity>
     </application>

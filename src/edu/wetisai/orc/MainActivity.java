@@ -1,5 +1,7 @@
 
-package edu.wetisai.ocr;
+package edu.wetisai.orc;
+
+import edu.wetisai.ocr.R;
 
 import android.app.ListActivity;
 import android.content.Intent;

@@ -1,7 +1,9 @@
 
-package edu.wetisai.ocr;
+package edu.wetisai.orc;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
+
+import edu.wetisai.ocr.R;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
