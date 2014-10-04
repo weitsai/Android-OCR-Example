@@ -6,4 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="search_results">搜尋結果</string>
 
+    <!-- activity label -->
+    <string name="orc_bitmap">判斷 bitmap 內文字</string>
 </resources>
