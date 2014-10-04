@@ -26,6 +26,10 @@
             android:name="edu.wetisai.ocr.BitmapORC"
             android:label="@string/orc_bitmap" >
         </activity>
+        <activity
+            android:name="edu.wetisai.ocr.CameraORC"
+            android:label="@string/orc_camera" >
+        </activity>
     </application>
 
 </manifest>

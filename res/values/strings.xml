@@ -8,4 +8,9 @@
 
     <!-- activity label -->
     <string name="orc_bitmap">判斷 bitmap 內文字</string>
+    <string name="orc_camera">拍照後判斷圖片內的文字</string>
+
+    <!-- activity_orc_camera.xml -->
+    <string name="on_camera">開始拍照</string>
+
 </resources>
